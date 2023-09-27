@@ -9,9 +9,10 @@ def get_subfield(field, sf):
             return value
     return ""
 
-# Parse a dict representation of a MARC record into a compact form suitable for an LLM
-# This should be vastly improved to handle more non-book edge cases
+
 def parse_bib(record):
+    # Parse a dict representation of a MARC record into a compact form suitable for an LLM
+    # This should be vastly improved to handle more non-book edge cases
     res = []
     for b in record['fields']:
         field, value = list(b.items())[0] # Unpacking that goofy JSON-MARC thing
@@ -28,8 +29,10 @@ def parse_bib(record):
                         get_subfield(value, "c")})
     return res
 
-# Parse the output of zoomsh into a hitcount and records and records parsed into dicts
+
 def zoomsh_results(lines):
+    # Parse the output of zoomsh into a hitcount and records and records parsed into dicts
+
     # Grab the hitcount
     first_line =  lines.pop(0)
     results_pattern = re.compile(r'^.*: (\d*) hits')
@@ -60,12 +63,9 @@ def zoomsh_results(lines):
 
     return result
 
-# Grap the fields we care about out of a list of MARC records and add to the result dict
-def interpret_records(result):
-    return True
 
-# Build a shell command line and call zoomsh, parse results and return results
 def zoomsh(args):
+    # Build a shell command line and call zoomsh, parse results and return results
     command_string = "zoomsh -a apdulog"
     for command in args:
         command_string += " '" + command['verb'] + " " + command['arguments'] + "'"
@@ -75,8 +75,9 @@ def zoomsh(args):
     lines = stream.readlines()
     return zoomsh_results(lines)
 
-# Construct a boolean PQF query from a dict with field-term pairs
+
 def zoom_makequery(query):
+    # Construct a boolean PQF query from a dict with field-term pairs
     query_string = ""
     for field, term in query.items():
         if query_string: query_string = "@and " + query_string + " "
