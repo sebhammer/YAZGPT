@@ -13,7 +13,7 @@ Python, so please don't judge.
 
 **Prerequisites**
 
-YAZPT.py needs to zee "zoomsh" in its path.
+YAZGPT.py needs to zee "zoomsh" in its path.
 Zoomsh is part of the
 [YAZ toolkit](https://www.indexdata.com/resources/software/yaz).
 
