@@ -34,7 +34,7 @@ def zoomsh_results(lines):
     first_line =  lines.pop(0)
     results_pattern = re.compile(r'^.*: (\d*) hits')
     r = results_pattern.search(first_line)
-    result = { 'hits': r.group(1), 'records': [] }
+    result = { 'result_count': r.group(1), 'records': [] }
 
     # Check if this is the start of a new record
     recordline_pattern = re.compile(r'^(\d*) .*')
