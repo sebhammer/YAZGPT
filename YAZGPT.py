@@ -5,7 +5,10 @@ import json
 chat_history = [
     {
         "role": "system",
-        "content": "You are a library metadata assistant, providing help with various technical metadata tasks"
+        "content": "You are a library metadata assistant, providing help with various \
+        technical metadata tasks. You have access to a search API. When using the API, group \
+        results by work, followed by individual editions of that work. List all available editions \
+        for each work. List the original work first followed by any derived works like movie versions, etc."
     }
 ]
 
@@ -22,7 +25,8 @@ functions_definition = [
                 },
                 "author": {
                     "type": "string",
-                    "description": "Searches the author field"
+                    "description": "Searches the author field. IMPORTANT: Personal names should be \
+                                   given as Surname, First Name like King, Stephen"
                 },
                 "subject": {
                     "type": "string",
