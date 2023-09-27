@@ -24,5 +24,3 @@ on demand?
 Would it make sense to predefine multiple search targets and let the LLM choose the modst appropriate one?
 
 Explore use cases: General research, copy cataloging, resource sharing
-
-tweak
