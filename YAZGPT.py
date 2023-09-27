@@ -59,9 +59,8 @@ def chatline(line):
                                           function_call="auto")
     message = response['choices'][0].message
     chat_history.append(message)
-    # TODO: This whole function should probably be a loop, to allow the LLM to do
-    # one-shot query refinements through repeated searches.
-    if (message.get("function_call")):
+    while message.get("function_call"):
+        # The LLM wants to call a function
         print("Function Call", message['function_call']["name"],
               message['function_call']["arguments"])
         if message['function_call']['name'] == 'search':
