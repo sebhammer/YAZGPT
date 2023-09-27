@@ -15,7 +15,8 @@ Python, so please don't judge.
 
 YAZGPT.py needs to zee "zoomsh" in its path.
 Zoomsh is part of the
-[YAZ toolkit](https://www.indexdata.com/resources/software/yaz).
+[YAZ toolkit](https://www.indexdata.com/resources/software/yaz). You can easily
+find it for almost any platform.
 
 You need an OpenAI API key. The code looks for it in the
 OPENAI_API_KEY environment variable.
