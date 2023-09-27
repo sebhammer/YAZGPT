@@ -1,4 +1,4 @@
-# YAZGPT
+# YAZGPT - an experimental Z39.50 chatbot
 Copyright (c) 2023 Sebastian Hammer, see LICENSE file for details   
 
 The purpose of this little project is to build a basic platform
