@@ -27,68 +27,45 @@ Example session:
 
 Welcome to the YAZGPT AI-powered Z39.50 client
 
-YAZGPT>> find motorcycle in the title by pirsig
+YAZGPT>> find titles by Robert Pirsig, FRBRize the results by grouping them by work
 Function Call search {
-  "title": "motorcycle",
-  "author": "pirsig"
+  "author": "Pirsig, Robert"
 }
-Hitcount:  7
-I found 6 editions related to the title "Zen and the Art of Motorcycle Maintenance" by Robert M. Pirsig:
+Hitcount:  11
+Here are the titles by Robert Pirsig, grouped by work:
 
-1. Zen and the Art of Motorcycle Maintenance:
-   - Author: Pirsig, Robert M.
-   - Publication: New York, Morrow, 1974.
-
-2. Zen and the Art of Motorcycle Maintenance:
-   - Author: Pirsig, Robert M.
-   - Publication: New York, Morrow, 1984, c1974.
-
-3. Zen and the Art of Motorcycle Maintenance:
-   - Author: Pirsig, Robert M.
-   - Publication: New York, W. Morrow, 1999.
-
-4. Zen and the Art of Motorcycle Maintenance:
-   - Author: Pirsig, Robert M.
-   - Publication: New York, Quill, 1999.
-
-5. Zen and the Art of Motorcycle Maintenance:
-   - Author: Pirsig, Robert M.
-   - Publication: Los Angeles, CA, Audio Renaissance, 1999.
-   - Contributor: Pressman, Lawrence.
-
-6. Zen and Now:
-   - Author: Richardson, Mark
-   - Publication: New York, Alfred A. Knopf, 2008.
-
-Please let me know if you need any further assistance.
-
-YAZGPT>> What are the unique creative works in the list?
-The unique creative works in the list are:
-
-1. Zen and the Art of Motorcycle Maintenance by Robert M. Pirsig.
-2. Zen and Now by Mark Richardson.
-
-Please let me know if there is anything else I can help you with.
-
-YAZGPT>> Give me a list of editions for each of those works
-Sure! Here are the editions for each of the unique creative works:
-
-1. Zen and the Art of Motorcycle Maintenance by Robert M. Pirsig:
-   - Edition 1:
+1. Work: Zen and the art of motorcycle maintenance
+   - Title: Zen and the art of motorcycle maintenance :
+     - Publication: New York : W. Morrow, 1999.
+   - Title: Zen and the art of motorcycle maintenance:
      - Publication: New York, Morrow, 1974.
-   - Edition 2:
-     - Publication: New York, Morrow, 1984, c1974.
-   - Edition 3:
-     - Publication: New York, W. Morrow, 1999.
-   - Edition 4:
-     - Publication: New York, Quill, 1999.
-   - Edition 5:
-     - Publication: Los Angeles, CA, Audio Renaissance, 1999.
+   - Title: Zen and the art of motorcycle maintenance :
+     - Publication: New York : Quill, 1999.
+   - Title: Zen and the art of motorcycle maintenance :
+     - Publication: New York : Morrow, 1984, c1974.
+   - Title: Zen and the art of motorcycle maintenance
+     - Publication: Los Angeles, CA : Audio Renaissance, p1999.
      - Contributor: Pressman, Lawrence.
 
-2. Zen and Now by Mark Richardson:
-   - Edition 1:
-     - Publication: New York, Alfred A. Knopf, 2008.
+2. Work: Lila
+   - Title: Lila :
+     - Publication: New York : Bantam Books, 1991.
+   - Title: Lila
+     - Publication: New York, N.Y. : Bantam Audio, p1991.
+     - Contributor: Patton, Will.
+
+3. Work: On quality
+   - Title: On quality :
+     - Publication: Boston : Mariner Books, [2022]
+     - Publication: ©2022
+     - Contributor: Pirsig, Wendy K., editor.
+
+I couldn't find any additional works by Robert Pirsig in the provided database.
+
+YAZGPT>> 
+
+YAZGPT>> 
+
 
 ```
 
