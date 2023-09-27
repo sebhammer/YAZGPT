@@ -9,8 +9,8 @@ Python, so please don't judge.
 
 **Prerequisites**
 
-Not much. YAZPT.py needs to zee "zoomsh" somewhere in its path.
-You Zoomsh is part of the
+YAZPT.py needs to zee "zoomsh" in its path.
+Zoomsh is part of the
 [YAZ toolkit](https://www.indexdata.com/resources/software/yaz).
 
 You need an OpenAI API key. The code looks for it in the
@@ -18,9 +18,16 @@ OPENAI_API_KEY environment variable.
 
 **TODO**
 
+Break initial prompt into a file and make the file a commmand line option to allow tuning of the prompt to the
+use case.
+
+Add logging of query/result details for auditing the results
+
 Refine the mapping of records. Is it possible to give access to additional fields/detailed records
 on demand?
 
 Would it make sense to predefine multiple search targets and let the LLM choose the modst appropriate one?
 
 Explore use cases: General research, copy cataloging, resource sharing
+
+List remaining context buffer space; add some kind of cleanout/compression of older messages.
