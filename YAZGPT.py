@@ -18,15 +18,15 @@ functions_definition = [
             "properties": {
                 "title": {
                     "type": "string",
-                    "description": "Searches the title index"
+                    "description": "Searches the title field"
                 },
                 "author": {
                     "type": "string",
-                    "description": "Searches the author index"
+                    "description": "Searches the author field"
                 },
                 "subject": {
                     "type": "string",
-                    "description": "Searches for books about this subject matter"
+                    "description": "Searches the subject field",
                 },
                 "date": {
                     "type": "string",
