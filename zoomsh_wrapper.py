@@ -70,14 +70,14 @@ def zoomsh(args):
     for command in args:
         command_string += " '" + command['verb'] + " " + command['arguments'] + "'"
     command_string += " quit"
-    print("My command is", command_string)
     stream = os.popen(command_string)
     lines = stream.readlines()
     return zoomsh_results(lines)
 
 
-def zoom_makequery(query):
+def zoom_makequery(parm_string):
     # Construct a boolean PQF query from a dict with field-term pairs
+    query = json.loads(parm_string)
     query_string = ""
     for field, term in query.items():
         if query_string: query_string = "@and " + query_string + " "
@@ -85,7 +85,7 @@ def zoom_makequery(query):
             case "title":
                 query_string += "@attr 1=4"
             case "author":
-                query_string += "@attr 1=1003"
+                query_string += "@attr 1=1"
             case "subject":
                 query_string += "@attr 1=21"
             case "date":

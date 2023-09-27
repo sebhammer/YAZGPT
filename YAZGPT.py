@@ -1,5 +1,6 @@
 import openai
 import zoomsh_wrapper
+import json
 
 chat_history = [
     {
@@ -37,8 +38,14 @@ functions_definition = [
 ]
 
 def search_function(parameters):
-    query = zoom_makequery(parameters)
-
+    query = zoomsh_wrapper.zoom_makequery(parameters)
+    r = zoomsh_wrapper.zoomsh([{"verb": "connect", "arguments": "z3950.loc.gov:7090/Voyager"},
+            {"verb": "set", "arguments": "preferredRecordSyntax marc21"},
+            {"verb": "set", "arguments": "charset utf8"},
+            {"verb": "find", "arguments": query},
+            {"verb": "show", "arguments": "1 30 json;charset=marc8,utf8"}])
+    print("Hitcount: ", r['result_count'])
+    return json.dumps(r)
 
 def chatline(line):
     chat_history.append({"role": "user", "content": line})
