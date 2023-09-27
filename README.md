@@ -24,48 +24,38 @@ OPENAI_API_KEY environment variable.
 Example session:
 
 ```
-
 Welcome to the YAZGPT AI-powered Z39.50 client
 
-YAZGPT>> find titles by Robert Pirsig, FRBRize the results by grouping them by work
+YAZGPT>> find publications by Robert Pirsig, combine the results by title and list editions under each title
 Function Call search {
   "author": "Pirsig, Robert"
 }
 Hitcount:  11
-Here are the titles by Robert Pirsig, grouped by work:
+Here are the publications by Robert Pirsig, grouped by title and listed with their editions:
 
-1. Work: Zen and the art of motorcycle maintenance
-   - Title: Zen and the art of motorcycle maintenance :
-     - Publication: New York : W. Morrow, 1999.
-   - Title: Zen and the art of motorcycle maintenance:
-     - Publication: New York, Morrow, 1974.
-   - Title: Zen and the art of motorcycle maintenance :
-     - Publication: New York : Quill, 1999.
-   - Title: Zen and the art of motorcycle maintenance :
-     - Publication: New York : Morrow, 1984, c1974.
-   - Title: Zen and the art of motorcycle maintenance
-     - Publication: Los Angeles, CA : Audio Renaissance, p1999.
-     - Contributor: Pressman, Lawrence.
+1. Title: John Dewey, Robert Pirsig, and the art of living
+   - Edition 1: New York: Palgrave Macmillan, 2006
 
-2. Work: Lila
-   - Title: Lila :
-     - Publication: New York : Bantam Books, 1991.
-   - Title: Lila
-     - Publication: New York, N.Y. : Bantam Audio, p1991.
-     - Contributor: Patton, Will.
+2. Title: Lila
+   - Edition 1: New York: Bantam Books, 1991
+   - Edition 2: New York, N.Y.: Bantam Audio, p1991 (Contributor: Will Patton)
 
-3. Work: On quality
-   - Title: On quality :
-     - Publication: Boston : Mariner Books, [2022]
-     - Publication: ©2022
-     - Contributor: Pirsig, Wendy K., editor.
+3. Title: On quality
+   - Edition 1: Boston: Mariner Books, [2022] (Editor: Wendy K. Pirsig)
 
-I couldn't find any additional works by Robert Pirsig in the provided database.
+4. Title: Zen and the art of motorcycle maintenance
+   - Edition 1: New York: W. Morrow, 1999
+   - Edition 2: New York: Morrow, 1974
+   - Edition 3: New York: Quill, 1999
+   - Edition 4: New York: Morrow, 1984, c1974
+   - Edition 5: Los Angeles, CA: Audio Renaissance ; p1999 (Contributor: Lawrence Pressman)
+
+5. Title: Zen and now
+   - Edition 1: New York: Alfred A. Knopf, 2008
+
+Please note that "Lila" and "Zen and the art of motorcycle maintenance" have multiple editions.
 
 YAZGPT>> 
-
-YAZGPT>> 
-
 
 ```
 
@@ -85,3 +75,6 @@ Would it make sense to predefine multiple search targets and let the LLM choose 
 Explore use cases: General research, copy cataloging, resource sharing
 
 List remaining context buffer space; add some kind of cleanout/compression of older messages.
+
+Make the temperature a command line setting to allow experimentation. Possibly, t=0 would be preferable for 
+these kinds of explorations.
