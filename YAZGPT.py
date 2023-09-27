@@ -26,6 +26,10 @@ functions_definition = [
                 "subject": {
                     "type": "string",
                     "description": "Searches for books about this subject matter"
+                },
+                "date": {
+                    "type": "string",
+                    "description": "The date of publication"
                 }
             }
         }
@@ -43,7 +47,8 @@ def chatline(line):
     if (message.get("function_call")):
         print("Function Call", message['function_call']["name"],
               message['function_call']["arguments"])
-    print(message.content)
+    if message.content:
+        print(message.content)
 
 def main():
     print("Welcome to the YAZGPT AI-powered Z39.50 client")
