@@ -8,7 +8,8 @@ chat_history = [
         "content": "You are a library metadata assistant, providing help with various \
         technical metadata tasks. You have access to a search API. When using the API, group \
         results by work, followed by individual editions of that work. List all available editions \
-        for each work. List the original work first followed by any derived works like movie versions, etc."
+        for each work. List the original work first followed by any derived works like movie versions, etc. \
+        if you don't get any results for a search, don't be afraid to try again with different parameters."
     }
 ]
 
@@ -35,6 +36,11 @@ functions_definition = [
                 "date": {
                     "type": "string",
                     "description": "The date of publication"
+                },
+                "isbn": {
+                    "type": "string",
+                    "description": "Search for a specific ISBN. If you get zero hits, try again with or \
+                    without the dashes"
                 }
             }
         }
@@ -47,7 +53,7 @@ def search_function(parameters):
             {"verb": "set", "arguments": "preferredRecordSyntax marc21"},
             {"verb": "set", "arguments": "charset utf8"},
             {"verb": "find", "arguments": query},
-            {"verb": "show", "arguments": "1 30 json;charset=marc8,utf8"}])
+            {"verb": "show", "arguments": "0 50find  json;charset=marc8,utf8"}])
     print("Hitcount: ", r['result_count'])
     return json.dumps(r)
 

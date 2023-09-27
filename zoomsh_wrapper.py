@@ -18,6 +18,8 @@ def parse_bib(record):
         field, value = list(b.items())[0] # Unpacking that goofy JSON-MARC thing
         # print(field, value)
         match field:
+            case "020":
+                res.append({'isbn': get_subfield(value, 'a')})
             case "100":
                 res.append({'author': get_subfield(value, 'a')})
             case "700"|"710":
@@ -27,6 +29,7 @@ def parse_bib(record):
             case "260"|"264":
                 res.append({'publication': get_subfield(value, 'a') + get_subfield(value, "b") + \
                         get_subfield(value, "c")})
+
     return res
 
 
@@ -86,6 +89,8 @@ def zoom_makequery(parm_string):
                 query_string += "@attr 1=4"
             case "author":
                 query_string += "@attr 1=1"
+            case "isbn":
+                query_string += "@attr 1=7"
             case "subject":
                 query_string += "@attr 1=21"
             case "date":

@@ -64,7 +64,43 @@ Please note that "Lila" and "Zen and the art of motorcycle maintenance" have mul
 YAZGPT>> 
 
 ```
+Here is a fun recursive example -- note, lots of tuning and tweaking needed to make this operational, but
+a really interesting example of the AI using the output of one search to launch another.
 
+```
+YAZGPT>> find the book with isbn 0688002307, then use a title/author search to locate potential matching editions. Make a list of only those results where the Author and Title are similar to the original book
+Function Call search {
+  "isbn": "0688002307"
+}
+Hitcount:  1
+Function Call search {
+  "title": "Zen and the art of motorcycle maintenance:",
+  "author": "Pirsig, Robert M."
+}
+Hitcount:  7
+Here are the potential matching editions of the book "Zen and the art of motorcycle maintenance" by Robert M. Pirsig that have similar titles and authors:
+
+1. Title: Zen and the art of motorcycle maintenance:
+   - Author: Robert M. Pirsig
+   - Publication: New York, Morrow, 1974.
+   - ISBN: 0688002307
+
+2. Title: Zen and the art of motorcycle maintenance :
+   - Author: Robert M. Pirsig
+   - Publication: New York, W. Morrow, 1999.
+   - ISBN: 0688171664 (pbk.)
+
+3. Title: Zen and the art of motorcycle maintenance :
+   - Author: Robert M. Pirsig
+   - Publication: New York, Morrow, 1984, c1974.
+   - ISBN: 0688032079
+
+Please note that these are the editions that have similar titles and authors to the original book. If you need more information about any of these editions, please let me know.
+
+YAZGPT>> 
+
+
+```
 
 **TODO**
 
