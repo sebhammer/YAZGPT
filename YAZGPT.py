@@ -1,5 +1,5 @@
 import openai
-import json
+import zoomsh_wrapper
 
 chat_history = [
     {
@@ -36,6 +36,10 @@ functions_definition = [
     }
 ]
 
+def search_function(parameters):
+    query = zoom_makequery(parameters)
+
+
 def chatline(line):
     chat_history.append({"role": "user", "content": line})
     response=openai.ChatCompletion.create(model="gpt-3.5-turbo-16k",
@@ -47,6 +51,24 @@ def chatline(line):
     if (message.get("function_call")):
         print("Function Call", message['function_call']["name"],
               message['function_call']["arguments"])
+        if message['function_call']['name'] == 'search':
+            result = search_function(message['function_call']['arguments'])
+
+            chat_history.append(
+                {
+                    'role': 'function',
+                    'name': 'search',
+                    'content': result
+                }
+            )
+            response = openai.ChatCompletion.create(model="gpt-3.5-turbo-16k",
+                                                    messages=chat_history,
+                                                    functions=functions_definition,
+                                                    function_call="auto")
+            message = response['choices'][0].message
+            chat_history.append(message)
+        else:
+            print("Unknown function!")
     if message.content:
         print(message.content)
 
