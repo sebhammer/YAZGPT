@@ -11,6 +11,12 @@ of library applications like cataloging, collection analysis, resource sharing, 
 I'm incredibly rusty as a developer and know no
 Python, so please don't judge.
 
+**Caveat**
+
+In its present form, this is not a useful tool -- it is just meant to be a fun way
+to explore whether generative API can have a role in bibliographic data flows. The
+present version is hardwired to search the Libray of Congress.
+
 **Prerequisites**
 
 YAZGPT.py needs to zee "zoomsh" in its path.
