@@ -1,4 +1,4 @@
-# YAZGPT - an experimental bibliogeaphic chatbot
+# YAZGPT - an experimental bibliographic chatbot
 Copyright (c) 2023 Sebastian Hammer, see LICENSE file for details   
 
 The purpose of this little project is to build a basic platform
