@@ -104,9 +104,6 @@ YAZGPT>>
 
 **TODO**
 
-Break initial prompt into a file and make the file a commmand line option to allow tuning of the prompt to the
-use case.
-
 Add logging of query/result details for auditing the results
 
 Refine the mapping of records. Is it possible to give access to additional fields/detailed records
