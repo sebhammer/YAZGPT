@@ -1,15 +1,14 @@
 import openai
 import zoomsh_wrapper
 import json
+import argparse
 
+# This list represents the history of the conversation. We bootstrap it with an initial prompt to give
+# the LLM background and direction. Prompt is read from a file.
 chat_history = [
     {
         "role": "system",
-        "content": "You are a library metadata assistant, providing help with various \
-        technical metadata tasks. You have access to a search API. When using the API, group \
-        results by work, followed by individual editions of that work. List all available editions \
-        for each work. List the original work first followed by any derived works like movie versions, etc. \
-        if you don't get any results for a search, don't be afraid to try again with different parameters."
+        "content": None
     }
 ]
 
@@ -90,7 +89,18 @@ def chatline(line):
     if message.content:
         print(message.content)
 
+# TODO:  -t -l
 def main():
+    parser = argparse.ArgumentParser(description="A simple GPT-powered Z39.50 client")
+    parser.add_argument('-p', '--prompt', help="path to initial setup prompt, default etc/prompts/default.txt",
+                        default='etc/prompts/default.txt')
+    parser.add_argument('-t', '--temperature', help="temperature parameter for the LLM. 0 is predictable, 1 is creative",
+                        default=1)
+    parser.add_argument('-l', '--log', help='a logfile for background protocol actions and data retrieved')
+    args = parser.parse_args()
+    with open(args.prompt) as pfile:
+        chat_history[0]['content'] = pfile.read()
+
     print("Welcome to the YAZGPT AI-powered Z39.50 client")
 
     while True:
