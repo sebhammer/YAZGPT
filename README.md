@@ -104,8 +104,6 @@ YAZGPT>>
 
 **TODO**
 
-Add logging of query/result details for auditing the results
-
 Refine the mapping of records. Is it possible to give access to additional fields/detailed records
 on demand?
 
