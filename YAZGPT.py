@@ -97,7 +97,7 @@ def chatline(line):
     if message.content:
         print(message.content)
 
-# TODO:  -t -l
+# TODO:  -t
 def main():
     parser = argparse.ArgumentParser(description="A simple GPT-powered Z39.50 client")
     parser.add_argument('-p', '--prompt', help="path to initial setup prompt, default etc/prompts/default.txt",
