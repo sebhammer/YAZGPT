@@ -76,8 +76,9 @@ Here is a fun recursive example -- note, lots of tuning and tweaking needed to m
 a really interesting example of the AI using the output of one search to launch another.
 
 ```
-YAZGPT>> find the book with isbn 0688002307, then use a title/author search to locate potential matching
-     editions. Make a list of only those results where the Author and Title are similar to the original book
+YAZGPT>> find the book with isbn 0688002307, then use a title/author search to locate
+            potential matching editions. Make a list of only those results where the
+            Author and Title are similar to the original book
      
 Function Call search {
   "isbn": "0688002307"
@@ -88,8 +89,8 @@ Function Call search {
   "author": "Pirsig, Robert M."
 }
 Hitcount:  7
-Here are the potential matching editions of the book "Zen and the art of motorcycle maintenance" by Robert M.
-   Pirsig that have similar titles and authors:
+Here are the potential matching editions of the book "Zen and the art of motorcycle maintenance" by
+   Robert M. Pirsig that have similar titles and authors:
 
 1. Title: Zen and the art of motorcycle maintenance:
    - Author: Robert M. Pirsig
@@ -106,8 +107,8 @@ Here are the potential matching editions of the book "Zen and the art of motorcy
    - Publication: New York, Morrow, 1984, c1974.
    - ISBN: 0688032079
 
-Please note that these are the editions that have similar titles and authors to the original book. If you need
-more information about any of these editions, please let me know.
+Please note that these are the editions that have similar titles and authors to the original
+   book. If you need more information about any of these editions, please let me know.
 
 YAZGPT>> 
 
