@@ -2,3 +2,5 @@ openapikey.txt
 apdulog
 apdulog2
 __pycache__/zoomsh_wrapper.cpython-311.pyc
+logfile
+*.pyc

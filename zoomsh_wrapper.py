@@ -2,6 +2,8 @@ import os
 import re
 import json
 
+import zlog
+
 def get_subfield(field, sf):
     for s in field['subfields']:
         subfield, value = list(s.items())[0]
@@ -38,6 +40,11 @@ def zoomsh_results(lines):
 
     # Grab the hitcount
     first_line =  lines.pop(0)
+    zlog.log(first_line)
+    error_pattern = re.compile(r'^.* error: (.*)')
+    r = error_pattern.search(first_line)
+    if r:
+        return { 'error': 'There was an error!', 'message': r.groups(1) }
     results_pattern = re.compile(r'^.*: (\d*) hits')
     r = results_pattern.search(first_line)
     result = { 'result_count': r.group(1), 'records': [] }
@@ -73,6 +80,7 @@ def zoomsh(args):
     for command in args:
         command_string += " '" + command['verb'] + " " + command['arguments'] + "'"
     command_string += " quit"
+    zlog.log(command_string)
     stream = os.popen(command_string)
     lines = stream.readlines()
     return zoomsh_results(lines)
