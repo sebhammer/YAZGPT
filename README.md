@@ -27,7 +27,13 @@ find it for almost any platform.
 You need an OpenAI API key. The code looks for it in the
 OPENAI_API_KEY environment variable.
 
-Example session:
+**Synopsis**
+
+```
+python3 YAZGPT.py --help     # for an overview of command-line options and parameters
+```
+
+**Example sessions**
 
 ```
 Welcome to the YAZGPT AI-powered Z39.50 client
