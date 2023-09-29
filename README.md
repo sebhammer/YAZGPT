@@ -122,7 +122,7 @@ Explore use cases and sumarize results: General research, copy cataloging, resou
 
 Refine the mapping of records. Is it possible to give access to additional fields/detailed records
 on demand? I'm thinking about an option to return full MARC for small result sets, with an error message back if
-too many records are returned.
+too many records are returned. Note that the current version returns extremely brief summary records in order to preserve context space for larger queries.
 
 Would it make sense to predefine multiple search targets and let the LLM choose the modst appropriate one? Create
 etc/targets and a way to specify a list of available targets for a session.
