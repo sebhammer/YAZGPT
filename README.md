@@ -117,14 +117,17 @@ YAZGPT>>
 
 **TODO**
 
+Explore use cases and sumarize results: General research, copy cataloging, resource sharing
+
 Refine the mapping of records. Is it possible to give access to additional fields/detailed records
-on demand?
+on demand? I'm thinking about an option to return full MARC for small result sets, with an error message back if
+too many records are returned.
 
-Would it make sense to predefine multiple search targets and let the LLM choose the modst appropriate one?
+Would it make sense to predefine multiple search targets and let the LLM choose the modst appropriate one? Create
+etc/targets and a way to specify a list of available targets for a session.
 
-Explore use cases: General research, copy cataloging, resource sharing
-
-List remaining context buffer space; add some kind of cleanout/compression of older messages.
+List remaining context buffer space; add some kind of cleanout/compression of older messages. Right now, everything
+is kept which is likely to lead to crummy results is a session goes on too long anyway.
 
 Make the temperature a command line setting to allow experimentation. Possibly, t=0 would be preferable for 
-these kinds of explorations.
+these kinds of explorations but right now the "creativity" of temp=1 may be good for discovery/ideation.
