@@ -23,7 +23,7 @@ present version is hardwired to search the Libray of Congress.
 YAZGPT.py needs to zee "zoomsh" in its path.
 Zoomsh is part of the
 [YAZ toolkit](https://www.indexdata.com/resources/software/yaz). You can easily
-find it for almost any platform.
+find it for almost any platform. I run this on a Mac.
 
 You need an OpenAI API key. The code looks for it in the
 OPENAI_API_KEY environment variable.
