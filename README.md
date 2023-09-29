@@ -36,6 +36,8 @@ python3 YAZGPT.py --help     # for an overview of command-line options and param
 
 **Example sessions**
 
+Note, the AI has been told that bibliographic search targets prefer normalized names, so it swaps surname/name when needed.
+
 ```
 Welcome to the YAZGPT AI-powered Z39.50 client
 
