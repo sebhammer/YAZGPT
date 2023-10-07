@@ -1,0 +1,68 @@
+z3950.loc.gov:7090/Voyager: 10000 hits
+0 database=Voyager syntax=USmarc schema=unknown
+03932cjm  2200433 a 4500
+001 15247076
+005 20080908140556.0
+007 sd fsngnnmmneu
+008 080404s2006    nyumun|           | mul d
+010    $a   2008573828
+024 1  $a 028947580980
+028 02 $a B0006603-02 $b Universal Music
+035    $a (OCoLC)ocm71826284
+035    $a (OCoLC)71826284
+040    $a JBO $c JBO $d FM0 $d OCLCQ $d DLC
+042    $a lccopycat
+050 00 $a SDB 76834
+245 04 $a The #1 Baroque album $h [sound recording].
+246 3  $a Number 1 Baroque album
+246 3  $a Number one Baroque album
+260    $a New York, N.Y. : $b Universal Music Classics Group, $c p2006.
+300    $a 2 sound discs : $b digital ; $c 4 3/4 in.
+500    $a Compact discs.
+511 0  $a Various artists.
+505 0  $a Disc 1: Arrival of the Queen of Sheba / Handel -- Canon in D / Pachelbel -- Sheep may safely graze / J.S. Bach -- Allegro from keyboard concerto in F "Italian" \ J.S. Bach -- Rondeau from Abdelazer / Henry Purcell -- Toccata from Toccata and fugue in D minor / J.S. Bach -- Gloria in excelsis from Gloria in D / Antonio Vivaldi -- Siciliano from Concerto for oboe, strings, and continuo in D minor / J.S. Bach -- Stabat mater, Cuius animan, O quam tristis from Stabat Mater / Antonio Vivaldi -- La râejouissance from Music for the royal fireworks suite / George Frideric Handel -- Jesu, joy of man's desiring from Cantata / J.S. Bach -- Concerto grosso in G minor, op. 6, no. 8 / Arcangelo Corelli -- Affettuoso from Violin concerto no. 4 in E / Georg Philipp Telemann -- Prelude in C from Well Tempered Clavier, Book I, no. 1 / J.S. Bach -- Allegro moderato from Violin concerto no. 1 in A minor / J.S. Bach -- Largo from Concerto for lute, 2 violins and continuo in D / Antonio Vivaldi -- Largo ma non tanto from Concerto for 2 violins, strings, and continuo in D minor / J.S. Bach -- Lascia ch'io pianga from Rinaldo / George Frideric Handel -- Allegro from Violin concerto no. 1 in E, "Spring" (Four seasons) / Antonio Vivaldi -- Presto from Violin concerto no. 2 in G minor, "Summer" (Four seasons) / Antonio Vivaldi -- Disc 2: Adagio from Oboe concerto in D minor / Alessandro Marcello -- Air on a G string (Air from Orchestral suite no. 3 in D) / J.S. Bach -- Trumpet voluntary / Jeremiah Clarke -- I know that my Redeemer liveth from Messiah / George Frideric Handel -- Stabat mater / Giovanni Battista Pergolesi -- Hornpipe from Water music suite in D / George Frideric Handel -- Adagio for strings and organ in G minor / Tomaso Albinoni -- Badinerie from Orchestral suite no. 2 in B minor / J.S. Bach -- Largo from Violin concerto no. 4 in F minor, "Winter" (Four seasons) / Antonio Vivaldi -- Miserere (excerpt) / Gregorio Allegri -- Hallelujah from Messiah / George Frideric Handel -- Le coucou from Troisiáeme suite / Louis-Claude Daquin -- Allegro from Brandenburg concerto no. 5 in D / J.S. Bach -- Aria from Goldberg variations / J.S. Bach -- When I am laid in earth from Dido and Aeneas / Henry Purcell -- Ombra mai fáu from Serse / George Frideric Handel -- Air from Water music suite in F / George Frideric Handel -- Nulla in mundo pax sincera / Antonio Vivaldi -- Zadok the priest from Coronation anthem no. 1 / George Frideric Handel.
+500    $a "Decca: a Universal Music Company"--Disc.
+650  0 $a Music $y 17th century.
+650  0 $a Music $y 18th century.
+650  0 $a Orchestral music.
+650  0 $a Choral music.
+650  0 $a Chamber music.
+710 2  $a Academy of St. Martin-in-the-Fields.
+710 2  $a Stuttgarter Kammerorchester.
+710 2  $a Academy of Ancient Music (1973- )
+710 2  $a Universal Music (Firm)
+710 2  $a Decca Records (Firm)
+906    $a 7 $b cbc $c copycat $d 2 $e ncip $f 20 $g y-genmusic
+925 0  $a acquire $b 2 shelf copies $x policy default
+955    $a vk80 2008-04-04 z-client $i vk80 2008-04-04 $e vk80 2008-05-23 Copy 2 to MBRS for shelf label $e vk79 2008-08-14 to MRBS for shelf label
+
+
+1 database=Voyager syntax=USmarc schema=unknown
+01541cjm  2200325 a 4500
+001 15206153
+005 20080421135414.0
+007 sd fsngnnmmned
+008 080305s2007    tnucyn|           | eng d
+906    $a 7 $b cbc $c copycat $d 2 $e ncip $f 20 $g y-soundrec
+925 0  $a acquire $b 2 shelf copies $x policy default
+955    $a qr11 2008-03-05 z-client $i qr11 2008-03-05 (rev qr15 2008-04-21)
+010    $a   2008645257
+024 1  $a 094638573326
+028 02 $a 09463-85733-2-6 $b Capitol Records Nashville
+033 2  $a 1979---- $a 1989----
+035    $a (OCoLC)ocn156551221
+040    $a UUC $c UUC $d OCLCQ $d DLC
+042    $a lccopycat
+050 00 $a SDB 70273
+245 00 $a #1 country hits of the 80's $h [sound recording].
+246 3  $a Number one country hits of the eighties
+260    $a Nashville, Tenn. : $b Capitol Records Nashville, $c p2007.
+300    $a 1 sound disc : $b digital ; $c 4 3/4 in.
+511 0  $a Various artists.
+518    $a All selections previously recorded between 1979 and 1989.
+500    $a Compact disc.
+505 00 $t Love will turn you around $r (Kenny Rogers) -- $t Strong enough to bend $r (Tanya Tucker) -- $t Sweetest thing (I've ever known) $r (Juice Newton) -- $t What's forever for $r (Michael Martin Murphy) -- $t Baby's got her blue jeans on $r (Mel McDaniel) -- $t Hell and high water $r (T. Graham Brown) -- $t Now and forever (you and me) $r (Anne Murray) -- $t Lesson in leavin' $r (Dottie West) -- $t One day at a time $r (Cristy Lane) -- $t Three time loser $r (Dan Seals).
+650  0 $a Country music $y 1971-1980.
+650  0 $a Country music $y 1981-1990.
+
+

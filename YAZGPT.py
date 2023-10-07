@@ -24,6 +24,14 @@ functions_definition = [
         "parameters": {
             "type": "object",
             "properties": {
+                "format": {
+                    "type": "string",
+                    "enum": ["brief", "detailed"],
+                    "description": "The level of detail to retrieve. Brief records contain summary information \
+                    and are suitable for broad, general searches. Detailed records are returned in the MARC21 \
+                    format and are only suitable for more precise searches. Typically only exact searches are suitable \
+                    for the detailed format."
+                },
                 "title": {
                     "type": "string",
                     "description": "Searches the title field"
@@ -53,17 +61,29 @@ functions_definition = [
 
 
 def search_function(parameters):
-    query = zoomsh_wrapper.zoom_makequery(parameters)
-    r = zoomsh_wrapper.zoomsh([{"verb": "connect", "arguments": "z3950.loc.gov:7090/Voyager"},
+    format = zoomsh_wrapper.format(parameters)
+    if format == "detailed":
+        syntax = "render"
+    else:
+        syntax = "json"
+    query = zoomsh_wrapper.makequery(parameters)
+    r = zoomsh_wrapper.zoomsh(format, [{"verb": "connect", "arguments": "z3950.loc.gov:7090/Voyager"},
             {"verb": "set", "arguments": "preferredRecordSyntax marc21"},
             {"verb": "set", "arguments": "charset utf8"},
             {"verb": "find", "arguments": query},
-            {"verb": "show", "arguments": "0 " + str(max_records) + " json;charset=marc8,utf8"}])
+            {"verb": "show", "arguments": "0 " + str(max_records) + " " + syntax + ";charset=marc8,utf8"}])
     if r.get('result_count'):
-        print("Hitcount: ", r['result_count'])
+        result_count = int(r['result_count'])
+        print("Hitcount: ", result_count)
+        if result_count > 8 and format == "detailed":
+            return json.dumps({"error": "The query you sent was too broad. Try to use a more specific query, or \
+            request brief instead of detailed records. You should warn the user that you had problems with the \
+            first request. You can use the ISBN field to retrieve details about any particular record"})
+
     return json.dumps(r)
 
 def chatline(line):
+    tokens = 0
     zlog.log("User: " + line)
     chat_history.append({"role": "user", "content": line})
     response=openai.ChatCompletion.create(model="gpt-3.5-turbo-16k",
@@ -72,11 +92,13 @@ def chatline(line):
                                           function_call="auto")
     message = response['choices'][0].message
     chat_history.append(message)
+    tokens = response['usage']['total_tokens']
     while message.get("function_call"):
         # The LLM wants to call a function
         print("Function Call", message['function_call']["name"],
               message['function_call']["arguments"])
         if message['function_call']['name'] == 'search':
+            zlog.log("Search: " + message['function_call']['arguments'])
             result = search_function(message['function_call']['arguments'])
 
             chat_history.append(
@@ -91,11 +113,13 @@ def chatline(line):
                                                     functions=functions_definition,
                                                     function_call="auto")
             message = response['choices'][0].message
+            tokens = response['usage']['total_tokens']
             chat_history.append(message)
         else:
             print("Unknown function!")
     if message.content:
         print(message.content)
+    zlog.log("Tokens:" + str(tokens))
 
 # TODO:  -t
 def main():

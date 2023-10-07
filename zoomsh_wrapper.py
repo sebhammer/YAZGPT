@@ -35,7 +35,7 @@ def parse_bib(record):
     return res
 
 
-def zoomsh_results(lines):
+def zoomsh_results(format, lines):
     # Parse the output of zoomsh into a hitcount and records and records parsed into dicts
 
     # Grab the hitcount
@@ -48,9 +48,16 @@ def zoomsh_results(lines):
     results_pattern = re.compile(r'^.*: (\d*) hits')
     r = results_pattern.search(first_line)
     result = { 'result_count': r.group(1), 'records': [] }
+    if result['result_count'] == "0":
+        result["error"] = "No hits. Try a broader search. If you were searching for an author, did \
+        you remember to reverse the first and family name?"
 
     # Check if this is the start of a new record
     recordline_pattern = re.compile(r'^(\d*) .*')
+    if format == "detailed":
+        end_of_record = "\n"
+    else:
+        end_of_record = "}\n"
     # Outer loop runs through records, as long as it finds a line like
     # 19 database=Voyager syntax=USmarc schema=unknown
     while len(lines):
@@ -61,20 +68,24 @@ def zoomsh_results(lines):
             break
         lines.pop(0)
         # Grab lines of JSON and add to buffer until we're done (closing bracket in position 0)
+        # Line-formatted records are separated by two newlines
         record_text = ''
         while len(lines):
             record_text += lines[0]
-            if lines.pop(0) == '}\n':
+            if lines.pop(0) == end_of_record:
                 break
-        record_dict = json.loads(record_text)
-        result['records'].append(parse_bib(record_dict))
+        if format == "brief":
+            record_dict = json.loads(record_text)
+            result['records'].append(parse_bib(record_dict))
+        else:
+            result['records'].append(record_text)
         if len(lines): # Grab the empty line after a record, if there is one
             lines.pop(0)
 
     return result
 
 
-def zoomsh(args):
+def zoomsh(format, args):
     # Build a shell command line and call zoomsh, parse results and return results
     command_string = "zoomsh -a apdulog"
     for command in args:
@@ -83,14 +94,23 @@ def zoomsh(args):
     zlog.log(command_string)
     stream = os.popen(command_string)
     lines = stream.readlines()
-    return zoomsh_results(lines)
+    return zoomsh_results(format, lines)
 
 
-def zoom_makequery(parm_string):
+def format(parm_string):
+    query = json.loads(parm_string)
+    if query.get("format"):
+        return query["format"]
+    else:
+        return "brief"
+
+def makequery(parm_string):
     # Construct a boolean PQF query from a dict with field-term pairs
     query = json.loads(parm_string)
     query_string = ""
     for field, term in query.items():
+        if field == "format":
+            continue
         if query_string: query_string = "@and " + query_string + " "
         match field:
             case "title":
@@ -107,7 +127,7 @@ def zoom_makequery(parm_string):
     return query_string
 
 def main():
-    query = zoom_makequery({"title": "water bottle"})
+    query = makequery({"title": "water bottle"})
     r = zoomsh([{"verb": "connect", "arguments": "z3950.loc.gov:7090/Voyager"},
             {"verb": "set", "arguments": "preferredRecordSyntax marc21"},
             {"verb": "set", "arguments": "charset utf8"},
