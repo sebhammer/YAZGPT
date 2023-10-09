@@ -116,7 +116,7 @@ def makequery(parm_string):
             case "title":
                 query_string += "@attr 1=4"
             case "author":
-                query_string += "@attr 1=1"
+                query_string += "@attr 1=1003"
             case "isbn":
                 query_string += "@attr 1=7"
             case "subject":
